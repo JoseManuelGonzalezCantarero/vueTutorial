@@ -20,6 +20,7 @@
 
 <script>
 import LegendComponent from '@/components/legend';
+import axios from 'axios';
 
 export default {
     name: 'Catalog',
@@ -29,5 +30,10 @@ export default {
     data: () => ({
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
+    mounted() {
+        axios.get('/api/products').then((response) => {
+            console.log(response);
+        });
+    },
 };
 </script>
